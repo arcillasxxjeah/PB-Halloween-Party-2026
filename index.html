@@ -92,11 +92,26 @@ const captureCanvas = $("#captureCanvas"), captureCtx = captureCanvas.getContext
 const outputCanvas = $("#outputCanvas"), ctx = outputCanvas.getContext("2d");
 let stream = null, selectedId = null, shots = [], capturing = false, customCount = 0;
 let templates = [
-{id:"cartoon",name:"Cartoon Network",description:"Playful animated heroes and spooky cartoon energy",kind:"cartoon",color:"#a3e635"},
-{id:"national",name:"Philippine National Heroes",description:"Celebrate the brave bayani of the Philippines",kind:"national",color:"#60a5fa"},
-{id:"marvel",name:"Marvel Heroes",description:"Comic-book action with a Halloween twist",kind:"marvel",color:"#ef4444"},
-{id:"dc",name:"DC Heroes",description:"Gothic city nights, capes, and heroic shadows",kind:"dc",color:"#818cf8"},
-{id:"anime",name:"Anime Heroes",description:"Manga-inspired heroes and supernatural powers",kind:"anime",color:"#f472b6"}
+  { id: "anime-1", name: "Anime 1" },
+  { id: "anime-2", name: "Anime 2" },
+  { id: "cartoon-network-1", name: "Cartoon Network 1" },
+  { id: "cartoon-network-2", name: "Cartoon Network 2" },
+  { id: "cartoon-network-3", name: "Cartoon Network 3" },
+  { id: "comics", name: "Comics" },
+  { id: "dc-1", name: "DC 1" },
+  { id: "dc-2", name: "DC 2" },
+  { id: "games-1", name: "Games 1" },
+  { id: "games-2", name: "Games 2" },
+  { id: "marvel-1", name: "Marvel 1" },
+  { id: "marvel-2", name: "Marvel 2" },
+  { id: "national-heroes-1", name: "National Heroes 1" },
+  { id: "national-heroes-2", name: "National Heroes 2" },
+  { id: "halloween-1", name: "Halloween 1" },
+  { id: "halloween-2", name: "Halloween 2" },
+  { id: "halloween-3", name: "Halloween 3" },
+  { id: "halloween-4", name: "Halloween 4" },
+  { id: "halloween-5", name: "Halloween 5" },
+  { id: "halloween-6", name: "Halloween 6" }
 ];
 function showScreen(id){screenIds.forEach(s=>$("#"+s).classList.toggle("hidden",s!==id));$("#manager").classList.add("hidden");if(id!=="cameraScreen")stopCamera();window.scrollTo({top:0,behavior:"smooth"});}
 function esc(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[c]));}
