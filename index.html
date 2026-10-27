@@ -219,7 +219,16 @@ async function compose(){
  ctx.fillStyle=accent;ctx.fillRect(margin,header-5,W-margin*2,7);
  for(let i=0;i<4;i++){const y=header+i*(photoH+gap);ctx.fillStyle="#fff9ec";ctx.fillRect(margin-6,y-6,photoW+12,photoH+12);const im=await loadImage(shots[i]);cover(ctx,im,margin,y,photoW,photoH);ctx.fillStyle=accent;ctx.beginPath();ctx.moveTo(margin,y);ctx.lineTo(margin+105,y);ctx.lineTo(margin,y+56);ctx.closePath();ctx.fill();text(ctx,String(i+1),margin+27,y+36,24,"#2E2E30");}
  const fy=H-footer;ctx.fillStyle=accent;ctx.fillRect(0,fy,W,footer);text(ctx,chosen.name.toUpperCase(),W/2,fy+95,42,"#2E2E30");text(ctx,"MAKE A MEMORY. BE THE HERO.",W/2,fy+165,28,"#2E2E30");
- if(chosen.imageUrl){try{const frame=await loadImage(chosen.imageUrl);ctx.drawImage(frame,0,0,W,H);}catch(e){console.warn("Frame could not load",e);}}else drawBuiltinFrame(ctx,chosen,W,H,accent);
+if(chosen.imageUrl){
+  try{
+    const frame = await loadImage(chosen.imageUrl);
+    ctx.drawImage(frame, 0, 0, W, H);
+  } catch(e){
+    console.warn("Frame could not load", e);
+  }
+} else {
+  drawBuiltinFrame(ctx, chosen, W, H, accent);
+}
  $("#resultImage").src=outputCanvas.toDataURL("image/png");
 }
 function drawBuiltinFrame(c,t,w,h,accent){c.save();c.strokeStyle=accent;c.lineWidth=20;c.strokeRect(12,12,w-24,h-24);c.strokeStyle="#fff7ed";c.lineWidth=4;c.strokeRect(30,30,w-60,h-60);
