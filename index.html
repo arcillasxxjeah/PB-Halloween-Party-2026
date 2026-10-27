@@ -92,26 +92,106 @@ const captureCanvas = $("#captureCanvas"), captureCtx = captureCanvas.getContext
 const outputCanvas = $("#outputCanvas"), ctx = outputCanvas.getContext("2d");
 let stream = null, selectedId = null, shots = [], capturing = false, customCount = 0;
 let templates = [
-  { id: "anime-1", name: "Anime 1" },
-  { id: "anime-2", name: "Anime 2" },
-  { id: "cartoon-network-1", name: "Cartoon Network 1" },
-  { id: "cartoon-network-2", name: "Cartoon Network 2" },
-  { id: "cartoon-network-3", name: "Cartoon Network 3" },
-  { id: "comics", name: "Comics" },
-  { id: "dc-1", name: "DC 1" },
-  { id: "dc-2", name: "DC 2" },
-  { id: "games-1", name: "Games 1" },
-  { id: "games-2", name: "Games 2" },
-  { id: "marvel-1", name: "Marvel 1" },
-  { id: "marvel-2", name: "Marvel 2" },
-  { id: "national-heroes-1", name: "National Heroes 1" },
-  { id: "national-heroes-2", name: "National Heroes 2" },
-  { id: "halloween-1", name: "Halloween 1" },
-  { id: "halloween-2", name: "Halloween 2" },
-  { id: "halloween-3", name: "Halloween 3" },
-  { id: "halloween-4", name: "Halloween 4" },
-  { id: "halloween-5", name: "Halloween 5" },
-  { id: "halloween-6", name: "Halloween 6" }
+  {
+    id: "anime-1",
+    name: "Anime 1",
+    imageUrl: "/assets/Anime 1.png"
+  },
+  {
+    id: "anime-2",
+    name: "Anime 2",
+    imageUrl: "/assets/Anime 2.png"
+  },
+  {
+    id: "cartoon-network-1",
+    name: "Cartoon Network 1",
+    imageUrl: "/assets/Cartoon Network 1.png"
+  },
+  {
+    id: "cartoon-network-2",
+    name: "Cartoon Network 2",
+    imageUrl: "/assets/Cartoon Network 2.png"
+  },
+  {
+    id: "cartoon-network-3",
+    name: "Cartoon Network 3",
+    imageUrl: "/assets/Cartoon Network 3.png"
+  },
+  {
+    id: "comics",
+    name: "Comics",
+    imageUrl: "/assets/Comics.png"
+  },
+  {
+    id: "dc-1",
+    name: "DC 1",
+    imageUrl: "/assets/DC 1.png"
+  },
+  {
+    id: "dc-2",
+    name: "DC 2",
+    imageUrl: "/assets/DC 2.png"
+  },
+  {
+    id: "games-1",
+    name: "Games 1",
+    imageUrl: "/assets/Games 1.png"
+  },
+  {
+    id: "games-2",
+    name: "Games 2",
+    imageUrl: "/assets/Games 2.png"
+  },
+  {
+    id: "marvel-1",
+    name: "Marvel 1",
+    imageUrl: "/assets/Marvel 1.png"
+  },
+  {
+    id: "marvel-2",
+    name: "Marvel 2",
+    imageUrl: "/assets/Marvel 2.png"
+  },
+  {
+    id: "national-heroes-1",
+    name: "National Heroes 1",
+    imageUrl: "/assets/National Heroes 1.png"
+  },
+  {
+    id: "national-heroes-2",
+    name: "National Heroes 2",
+    imageUrl: "/assets/National Heroes 2.png"
+  },
+  {
+    id: "halloween-1",
+    name: "Halloween 1",
+    imageUrl: "/assets/Halloween 1.png"
+  },
+  {
+    id: "halloween-2",
+    name: "Halloween 2",
+    imageUrl: "/assets/Halloween 2.png"
+  },
+  {
+    id: "halloween-3",
+    name: "Halloween 3",
+    imageUrl: "/assets/Halloween 3.png"
+  },
+  {
+    id: "halloween-4",
+    name: "Halloween 4",
+    imageUrl: "/assets/Halloween 4.png"
+  },
+  {
+    id: "halloween-5",
+    name: "Halloween 5",
+    imageUrl: "/assets/Halloween 5.png"
+  },
+  {
+    id: "halloween-6",
+    name: "Halloween 6",
+    imageUrl: "/assets/Halloween 6.png"
+  }
 ];
 function showScreen(id){screenIds.forEach(s=>$("#"+s).classList.toggle("hidden",s!==id));$("#manager").classList.add("hidden");if(id!=="cameraScreen")stopCamera();window.scrollTo({top:0,behavior:"smooth"});}
 function esc(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[c]));}
