@@ -246,7 +246,39 @@ $("#startBtn").addEventListener("click",()=>{renderThemes();showScreen("themes")
 $("#continueBtn").addEventListener("click",async()=>{if(!selectedId)return;showScreen("cameraScreen");await startCamera();});
 $("#captureBtn").addEventListener("click",captureSession);
 $("#stopBtn").addEventListener("click",()=>{stopCamera();$("#cameraMessage").textContent="Camera is off. Start the session to turn it back on.";});
-$("#downloadBtn").addEventListener("click",()=>{const a=document.createElement("a");a.href=outputCanvas.toDataURL("image/png");a.download=`heroes-halloween-photobooth-${new Date().toISOString().slice(0,10)}.png`;document.body.appendChild(a);a.click();a.remove();});
+
+$("#downloadBtn").addEventListener("click", () => {
+  const a = document.createElement("a");
+
+  a.href = outputCanvas.toDataURL("image/png");
+
+  const chosen = templates.find(t => t.id === selectedId) || templates[0];
+
+  const themeName = chosen.name
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "");
+
+  const now = new Date();
+  const date = [
+    now.getFullYear(),
+    String(now.getMonth() + 1).padStart(2, "0"),
+    String(now.getDate()).padStart(2, "0")
+  ].join("-");
+
+  const time = [
+    String(now.getHours()).padStart(2, "0"),
+    String(now.getMinutes()).padStart(2, "0"),
+    String(now.getSeconds()).padStart(2, "0")
+  ].join("-");
+
+  a.download = `heroes-photobooth-${themeName}-${date}-${time}.png`;
+
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+});
+
 $("#retakeBtn").addEventListener("click",async()=>{reset();showScreen("cameraScreen");await startCamera();});
 $("#newThemeBtn").addEventListener("click",()=>{reset();renderThemes();showScreen("themes");$("#continueBtn").disabled=false;});
 document.querySelectorAll(".back").forEach(b=>b.addEventListener("click",()=>showScreen(b.dataset.target)));
