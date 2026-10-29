@@ -77,7 +77,20 @@ footer{color:#2E2E30}
 </section>
 <section id="result" class="screen hidden">
 <div class="heading"><div><p class="eyebrow">STEP 03 / YOUR HERO MOMENT</p><h2>Your hero strip is ready!</h2><p class="muted">Download your photo strip or retake all four photos.</p></div></div>
-<div class="resultLayout"><div class="resultFrame"><img id="resultImage" alt="Your finished hero photo strip"></div><div class="resultActions"><div class="sticker">YOU<br>ROCK! ★</div><h3>Ready for your close-up?</h3><p class="muted">Your image is composed in this browser. No account or upload is needed.</p><button id="downloadBtn" class="btn primary large">↓ DOWNLOAD PHOTO STRIP</button><button id="retakeBtn" class="btn secondary">↻ RETAKE ALL PHOTOS</button><button id="newThemeBtn" class="btn quiet">Choose another theme</button></div></div>
+<div class="filterPicker">
+  <h3>CHOOSE YOUR FILTER</h3>
+
+  <div class="filterButtons">
+    <button class="filterBtn active" data-filter="original">Original</button>
+    <button class="filterBtn" data-filter="mono">Monochrome</button>
+    <button class="filterBtn" data-filter="vintage">Vintage</button>
+    <button class="filterBtn" data-filter="noir">Noir</button>
+    <button class="filterBtn" data-filter="vivid">Vivid</button>
+    <button class="filterBtn" data-filter="halloween">Halloween Glow</button>
+  </div>
+
+  <p>Tap a filter to preview your photo strip!</p>
+</div><div class="resultFrame"><img id="resultImage" alt="Your finished hero photo strip"></div><div class="resultActions"><div class="sticker">YOU<br>ROCK! ★</div><h3>Ready for your close-up?</h3><p class="muted">Your image is composed in this browser. No account or upload is needed.</p><button id="downloadBtn" class="btn primary large">↓ DOWNLOAD PHOTO STRIP</button><button id="retakeBtn" class="btn secondary">↻ RETAKE ALL PHOTOS</button><button id="newThemeBtn" class="btn quiet">Choose another theme</button></div></div>
 </section>
 <section id="manager" class="manager hidden"><div class="heading"><div><p class="eyebrow">BOOTH SETUP</p><h2>Manage hero templates</h2><p class="muted">Upload transparent PNG frames for Cartoon Network, Filipino national heroes, Marvel, DC, or anime-inspired looks. Clear areas show the photos underneath.</p></div><button id="closeManagerBtn" class="btn quiet">Close ✕</button></div><label class="upload"><strong>＋ Upload PNG templates</strong><span>Choose one or more transparent PNG files from your laptop.</span><input id="uploadInput" type="file" accept="image/png,.png" multiple></label><div class="actions"><p id="uploadStatus" class="note">Uploaded templates stay in this browser session. Built-in demo frames are included.</p><button id="clearUploadsBtn" class="btn quiet">Remove uploaded templates</button></div><div id="managerList" class="themeGrid"></div></section>
 <footer><span>HEROES HALLOWEEN PARTY</span><span>MAKE A MEMORY. BE THE HERO.</span></footer>
